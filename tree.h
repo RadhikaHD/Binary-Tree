@@ -16,10 +16,12 @@ public:
   ~Tree();
   void insert(int value);
   std::vector<int> traverse();
+  void invertTree();
 
 private:
   std::vector<Node *> nodes;
   Node *root;
   void traverse(Node *current, std::vector<int> &result);
   void insert(int value, Node *current);
+  Node* invertTree(Node* root);
 };

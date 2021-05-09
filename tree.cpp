@@ -61,3 +61,28 @@ std::vector<int> Tree::traverse() {
 
   return result;
 }
+
+void Tree::invertTree(){
+  root = invertTree(root);
+}
+
+Node* Tree::invertTree(Node* root) {
+        
+        if (root == nullptr)
+            return root;
+        else if ((root->left == nullptr) and (root->right == nullptr))
+            return root;
+        else{
+            Node* temp;
+            temp = root->left;
+            root->left = root->right;
+            root->right = temp;
+            Node* invertedLeft = invertTree(root->left);
+            Node* invertedRight = invertTree(root->right);
+            return root;
+        } 
+        
+    }
+
+
+
